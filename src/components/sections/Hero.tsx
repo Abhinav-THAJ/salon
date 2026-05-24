@@ -156,17 +156,30 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* Floating stats top-right */}
+      {/* Floating stats top-right — glass cards for readability */}
       <motion.div
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 1.4, duration: 1 }}
-        className="absolute top-28 right-8 lg:right-16 hidden lg:flex flex-col gap-8 text-right"
+        className="absolute top-28 right-8 lg:right-16 hidden lg:flex flex-col gap-3"
       >
         {[["15+", "Years Mastery"], ["3K+", "Clients Served"], ["12", "Expert Artisans"]].map(([num, label]) => (
-          <div key={label}>
-            <div className="font-display text-4xl text-[var(--color-gold-lt)]">{num}</div>
-            <div className="font-sans text-[9px] tracking-[0.25em] uppercase text-[var(--color-ash)] mt-1">{label}</div>
+          <div
+            key={label}
+            className="flex items-center gap-4 pl-5 pr-7 py-4"
+            style={{
+              background: "rgba(8,8,8,0.80)",
+              backdropFilter: "blur(16px)",
+              WebkitBackdropFilter: "blur(16px)",
+              borderLeft: "2px solid var(--color-gold)",
+              borderTop: "1px solid rgba(184,150,62,0.15)",
+              borderBottom: "1px solid rgba(184,150,62,0.15)",
+            }}
+          >
+            <div>
+              <div className="font-display text-3xl leading-none text-[var(--color-gold-lt)]">{num}</div>
+              <div className="font-sans text-[9px] tracking-[0.25em] uppercase text-[var(--color-ivory)] opacity-70 mt-1.5 whitespace-nowrap">{label}</div>
+            </div>
           </div>
         ))}
       </motion.div>
